@@ -255,7 +255,7 @@
 		\onslide<1->
 		{
 			\begin{block}{Definition: Partition and Quotient}
-				A partition of $G$ is a set $\mathcal{P} = \{P_1,...,P_n\}$ of non-empty subsets of $V(G)$ and each vertex of $G$ is in exactly one element of $\mathcal{P}$.
+				A partition of $G$ is a set $\mathcal{P} = \{P_1,...,P_n\}$ of non-empty subsets of $V(G)$ and each vertex of $G$ is in exactly one element (part) of $\mathcal{P}$.
 				
 				The quotient of $\mathcal{P}$ is a graph, denoted by $G/\mathcal{P}$, with each vertex $v_i$ corresponds $P_i$. For any two vertices $v_i,v_j$ in $G/\mathcal{P}$, they are connected if and only if some vertex in $P_i$ is connected to some vertex in $P_j$ in graph $G$.
 			\end{block}
@@ -285,17 +285,165 @@
 		\end{center}
 	\end{frame}
 
+
 	\subsection{Layered Width}
 	\begin{frame}
 		\frametitle{Layered width}
 		\begin{block}{Definition: Layered width}
 			The layered width of a partition $\mathcal{P}$ of a graph $G$ is the minimum integer $l$ such that there exists a path-partition (layering) of $G$, each element in $\mathcal{P}$ has at most $l$ vertices in each element of path-partition.
 		\end{block}
+		\vfill
+		\begin{center}
+			\includegraphics<2>[width=0.4\textwidth]{pics/layerwd_partition.pdf}
+			\includegraphics<3>[width=0.4\textwidth]{pics/layerwd_layering_w3.pdf}
+			\includegraphics<4>[width=0.4\textwidth]{pics/layerwd_layering_w1.pdf}
+		\end{center}
+	\end{frame}
+
+	\subsection{Vertical Path}
+	\begin{frame}
+		\frametitle{Layered width: Tree}
+		\begin{block}{Definition: Vertical Path}
+			Let $T$ be a tree rooted at a vertex $r$, a non-empty path $(x_1,...,x_p)$ in $T$ is vertical if for some $d \ge 0$ and for all $1 \le i  \le p$ we have $\text{dist}_T(x_i,r) = d+i$.
+		\end{block}
+		\vfill
+		\begin{center}
+			\includegraphics<2>[width=0.25\textwidth]{pics/vp_tree.pdf}
+			\includegraphics<3>[width=0.25\textwidth]{pics/vp_tree_p1.pdf}
+			\includegraphics<4>[width=0.25\textwidth]{pics/vp_tree_p2.pdf}
+			\includegraphics<5>[width=0.25\textwidth]{pics/vp_tree_p3.pdf}
+			\includegraphics<6>[width=0.25\textwidth]{pics/vp_tree_partition.pdf}
+			\includegraphics<7->[width=0.3\textwidth]{pics/vp_tree_partition_lw1.pdf}
+		\end{center}
+		\onslide<8>{A partition of the tree where each part is a vertical path has layered width 1.}
+	\end{frame}
+
+	\section{Planar Graph Decomposition}
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\onslide<1->
+		{
+			\begin{theorem}[Vida et al.,2020]
+				For a graph $G$, if $G$ has an $H$-partition of layered width $l$ and $H$ has treewidth $k$, then 
+				
+				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} l \rfloor$$
+			\end{theorem}
+		}
+		\vfill
+		\onslide<2->
+		{
+			\begin{theorem}[Vida et al.,2020]
+				Every planar graph $G$ has a connected partition $\mathcal{P}$ with layered width 1 such that $H = G/\mathcal{P}$ has treewidth at most 8.
+			\end{theorem}
+		}
+		\vfill
+		\onslide<3->
+		{
+			\begin{theorem}[Vida et al.,2020]
+				Every planar graph $G$ has queue-number at most 
+				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
+			\end{theorem}
+		}
+	\end{frame}
+
+	\subsection{The Decomposition Lemma}
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\begin{block}{Lemma (Vida et al.,2020)}
+			\footnotesize Let $G^+$ be a maximal planar graph, let $T$ be a spanning tree of $G^+$ rooted at vertex $r$ on outerface of $G^+$. For any cycle $F$ in $G^+$, which can be partitioned into at most 6 pairwise disjoint vertical paths of $T$, with $F = [P_1,...P_k]$ and $1 \le k \le 6$. Let $G$ be the internally triangulated subgraph of $G^+$ which consists of all edges and vertices of $G^+$ contained in $F$ and the interior of $F$, then $G$ has a partition $\mathcal{P}$ into vertical paths of $T$, and $P_1,...,P_k \in \mathcal{P}$, and the quotient graph $H = G/\mathcal{P}$ has a tree-decomposition $(B,T)$ that
+			\begin{itemize}
+				\item $|B_x| \le 9$ for any $x \in V(T)$
+				\item $\exists x \in V(T)$, all vertices correspond to $P_1,...,P_k$ in $H$ is in $B_x$ 
+			\end{itemize}
+			
+		\end{block}
+		\vfill
+		\begin{center}
+			\includegraphics<2>[width=0.3\textwidth]{pics/decomp_base.pdf}
+			\includegraphics<3>[width=0.28\textwidth]{pics/decomp_base_tree.pdf}
+			\includegraphics<4>[width=0.28\textwidth]{pics/decomp_base_path.pdf}
+			\includegraphics<5>[width=0.28\textwidth]{pics/decomp_base_cycle.pdf}
+			\includegraphics<6>[width=0.28\textwidth]{pics/decomp_G.pdf}
+			\includegraphics<7>[width=0.4\textwidth]{pics/decomp_G_partition.pdf}
+			\includegraphics<8>[width=0.35\textwidth]{pics/decomp_G_partition_intree.pdf}
+			\includegraphics<9>[width=0.5\textwidth]{pics/decomp_G_H.pdf}
+			\includegraphics<10>[width=0.7\textwidth]{pics/decomp_G_H_T.pdf}
+			\includegraphics<11>[width=0.7\textwidth]{pics/decomp_G_H_T_complete.pdf}
+		\end{center}
+	\end{frame}
+
+	\subsection{Induction}
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\begin{center}
+			\includegraphics<1>[width=0.7\textwidth]{pics/decomp_base_cycle.pdf}
+			\includegraphics<2>[width=0.7\textwidth]{pics/decomp_base_R.pdf}
+			\includegraphics<3>[width=0.7\textwidth]{pics/decomp_base_color.pdf}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\begin{block}{Lemma (Sperner's Lemma)}
+			Let $G$ be an internally triangulated graph whose vertices are colored 1,2,3 with the outer-face $F = [P_1,P_2,P_3]$ where each vertex in $P_i$ is colored $i$. Then $G$ contains an internal face whose vertices are colored 1,2,3.
+		\end{block}
+		\begin{center}
+			\includegraphics<2>[width=0.4\textwidth]{pics/decomp_base_color.pdf}
+			\includegraphics<3>[width=0.4\textwidth]{pics/decomp_base_color_tau.pdf}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\begin{center}
+			\includegraphics<1>[width=0.7\textwidth]{pics/decomp_base_color_tau.pdf}
+			\includegraphics<2>[width=0.7\textwidth]{pics/decomp_base_Q_R+-.pdf}
+			\includegraphics<3>[width=0.7\textwidth]{pics/decomp_base_G1.pdf}
+			\includegraphics<4>[width=0.7\textwidth]{pics/decomp_base_subG.pdf}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\begin{center}
+			\includegraphics<1>[width=0.9\textwidth]{pics/decomp_G_H.pdf}
+			\includegraphics<2>[width=0.95\textwidth]{pics/decomp_G_G3.pdf}
+			\includegraphics<3>[width=1\textwidth]{pics/decomp_G_H_T.pdf}
+			\includegraphics<4>[width=0.9\textwidth]{pics/decomp_G3_H_T.pdf}
+			\includegraphics<5>[width=1\textwidth]{pics/decomp_G_H_T_complete.pdf}
+		\end{center}
+	\end{frame}
+
+	\section{Summary}
+	\begin{frame}
+		\onslide<1->
+		{
+			\begin{theorem}[Vida et al.,2020]
+				Every planar graph $G$ has a connected partition $\mathcal{P}$ with layered width 1 such that $H = G/\mathcal{P}$ has treewidth at most 8.
+			\end{theorem}
+		}
+		\vfill
+		\onslide<2->
+		{
+			\begin{theorem}[Vida et al.,2020]
+				For a graph $G$, if $G$ has an $H$-partition of layered width $l$ and $H$ has treewidth $k$, then 
+				
+				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} l \rfloor$$
+			\end{theorem}
+		}
+		\vfill
+		\onslide<3->
+		{
+			\begin{theorem}[Vida et al.,2020]
+				Every planar graph $G$ has queue-number at most 
+				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
+			\end{theorem}
+		}
 	\end{frame}
 	
 	% Table of contents slide (optional)
 	\begin{frame}
-		\frametitle{Index}
+		\frametitle{Portal}
 		\tableofcontents
 	\end{frame}
 	
