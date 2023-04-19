@@ -42,14 +42,14 @@
 
 % Title, author, and date
 \title{Planar Graphs Have Bounded Queue-Number}
-\author{VIDA DUJMOVIĆ \inst{1} \and GWENAËL JORET \inst{2} \and PIOTR MICEK \inst{3} \and PAT MORIN \inst{4} \and TORSTEN UECKERDT \inst{5} \and DAVID R. WOOD \inst{6}}
+\author{Vida Dujmović \inst{1} \and Gwenaël Joret \inst{2} \and Piotr Micek \inst{3} \and Pat Morin \inst{4} \and Torsten Ueckerdt \inst{5} \and David R. Wood \inst{6}}
 \institute[shortinst]{\inst{1}  University of Ottawa \and %
 	\inst{2} Université Libre de Bruxelles \and
 	\inst{3} Jagiellonian University \and
 	\inst{4} Carleton University \and
 	\inst{5} Karlsruhe Institute of Technology \and
 	\inst{6} Monash University}
-\date{Seminar Talk by Shengzhe Wang \\\today}
+\date{Geometry: Combinatorics and Algorithms Seminar\\Shengzhe Wang \\April 21, 2023}
 
 \begin{document}
 	
@@ -174,7 +174,7 @@
 		\vspace{1cm}
 		\onslide<2->
 		{
-			\begin{theorem}[Wiechert,2017]
+			\begin{theorem}[Wiechert, 2017]
 				Every graph with treewidth $k$ has queue-number at most $2^k-1$.
 			\end{theorem}
 		}
@@ -227,20 +227,32 @@
 	\end{frame}
 
 	\begin{frame}
+		\frametitle{Treewidth: Fixed-Parameter Tractability}
+		\begin{itemize}[<+->]
+			\item Computing a maximum independent set in a graph $G$ is NP-hard.
+			\item If $G$ has treewidth $\le k$, then a maximum independent set in G can be computed in time $O(k^2 4^k |V|)$.
+			\item Dynamic Programming on trees is relatively fast.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
 		\frametitle{Treewidth: Tree}
 		\begin{center}
 			\includegraphics<1>[width=0.4\textwidth]{pics/treewd_tree_base.pdf}
-			\includegraphics<2->[width=0.8\textwidth]{pics/treewd_tree.pdf}
+			\includegraphics<2>[width=0.6\textwidth]{pics/treewd_tree_1.pdf}
+			\includegraphics<3>[width=0.8\textwidth]{pics/treewd_tree_2.pdf}
+			\includegraphics<4->[width=0.9\textwidth]{pics/treewd_tree_3.pdf}
 			\vfill
-			\onslide<3>{Tree has treewidth 1}
+			\onslide<5>{Tree has treewidth 1}
 		\end{center}
 	\end{frame}
+
 
 	\begin{frame}
 		\frametitle{Treewidth: Planar graph}
 		\onslide<1->
 		{
-			\begin{theorem}[Wiechert,2017]
+			\begin{theorem}[Wiechert, 2017]
 				Every graph with treewidth $k$ has queue-number at most $2^k-1$.
 			\end{theorem}
 			\vfill
@@ -250,8 +262,15 @@
 		\onslide<2->
 		{
 			\vfill
-			\begin{theorem}
-				Planar graph on $n$ vertices has treewidth $O(\sqrt{n})$ and the bound is tight.
+			\begin{theorem}[Alon, Seymour, Thomas, 1990]
+				Planar graph on $n$ vertices has treewidth $O(\sqrt{n})$.
+			\end{theorem}
+		}
+		\onslide<3->
+		{
+			\vfill
+			\begin{theorem} [Robertson, Seymour]
+				A grid graph with size $n \times n$ has treewidth $n$.
 			\end{theorem}
 		}
 		\onslide<3>
@@ -337,11 +356,11 @@
 		\end{block}
 		\vfill
 		\begin{center}
-			\includegraphics<2>[width=0.25\textwidth]{pics/vp_tree.pdf}
-			\includegraphics<3>[width=0.25\textwidth]{pics/vp_tree_p1.pdf}
-			\includegraphics<4>[width=0.25\textwidth]{pics/vp_tree_p2.pdf}
-			\includegraphics<5>[width=0.25\textwidth]{pics/vp_tree_p3.pdf}
-			\includegraphics<6>[width=0.25\textwidth]{pics/vp_tree_partition.pdf}
+			\includegraphics<2>[width=0.35\textwidth]{pics/vp_tree.pdf}
+			\includegraphics<3>[width=0.35\textwidth]{pics/vp_tree_p1.pdf}
+			\includegraphics<4>[width=0.35\textwidth]{pics/vp_tree_p2.pdf}
+			\includegraphics<5>[width=0.35\textwidth]{pics/vp_tree_p3.pdf}
+			\includegraphics<6>[width=0.35\textwidth]{pics/vp_tree_partition.pdf}
 			\includegraphics<7->[width=0.3\textwidth]{pics/vp_tree_partition_lw1.pdf}
 		\end{center}
 		\onslide<8>{A partition of the tree where each part is a vertical path has layered width 1.}
@@ -389,15 +408,15 @@
 		\vfill
 		\begin{center}
 			\includegraphics<2>[width=0.3\textwidth]{pics/decomp_base.pdf}
-			\includegraphics<3>[width=0.28\textwidth]{pics/decomp_base_tree.pdf}
-			\includegraphics<4>[width=0.28\textwidth]{pics/decomp_base_path.pdf}
-			\includegraphics<5>[width=0.28\textwidth]{pics/decomp_base_cycle.pdf}
+			\includegraphics<3>[width=0.28\textwidth]{pics/decomp_base_tree_small.pdf}
+			\includegraphics<4>[width=0.28\textwidth]{pics/decomp_base_path_small.pdf}
+			\includegraphics<5>[width=0.28\textwidth]{pics/decomp_base_cycle_small.pdf}
 			\includegraphics<6>[width=0.28\textwidth]{pics/decomp_G.pdf}
-			\includegraphics<7>[width=0.4\textwidth]{pics/decomp_G_partition.pdf}
-			\includegraphics<8>[width=0.35\textwidth]{pics/decomp_G_partition_intree.pdf}
+			\includegraphics<7>[width=0.28\textwidth]{pics/decomp_G_partition.pdf}
+			\includegraphics<8>[width=0.28\textwidth]{pics/decomp_G_partition_intree_small.pdf}
 			\includegraphics<9>[width=0.5\textwidth]{pics/decomp_G_H.pdf}
-			\includegraphics<10>[width=0.7\textwidth]{pics/decomp_G_H_T.pdf}
-			\includegraphics<11>[width=0.7\textwidth]{pics/decomp_G_H_T_complete.pdf}
+			\includegraphics<10>[width=0.7\textwidth]{pics/decomp_G_H_T_complete.pdf}
+			\includegraphics<11>[width=0.7\textwidth]{pics/decomp_G_H_T.pdf}
 		\end{center}
 	\end{frame}
 
@@ -432,19 +451,52 @@
 		\end{center}
 	\end{frame}
 
+	\subsection{Construction}
 	\begin{frame}
-		\frametitle{Planar Graph Decomposition}
+		\frametitle{Planar Graph Decomposition: Construction}
 		\begin{center}
-			\includegraphics<1>[width=0.9\textwidth]{pics/decomp_G_H.pdf}
-			\includegraphics<2>[width=0.95\textwidth]{pics/decomp_G_G3.pdf}
-			\includegraphics<3>[width=1\textwidth]{pics/decomp_G_H_T.pdf}
-			\includegraphics<4>[width=0.9\textwidth]{pics/decomp_G3_H_T.pdf}
-			\includegraphics<5>[width=1\textwidth]{pics/decomp_G_H_T_complete.pdf}
+			\includegraphics<1>[width=0.7\textwidth]{pics/decomp_G.pdf}
+			\includegraphics<2>[width=0.7\textwidth]{pics/decomp_G_partition_1.pdf}
+			\includegraphics<3>[width=0.9\textwidth]{pics/decomp_G_G3_1.pdf}
+			\includegraphics<4>[width=0.9\textwidth]{pics/decomp_G_G3.pdf}
+			\includegraphics<5>[width=0.9\textwidth]{pics/decomp_G_H.pdf}
+			\includegraphics<6>[width=0.9\textwidth]{pics/decomp_G_H_T_1.pdf}
+			\includegraphics<7>[width=0.9\textwidth]{pics/decomp_G3_H_T_simp.pdf}
+			\includegraphics<8>[width=1\textwidth]{pics/decomp_G_H_T_complete.pdf}
+			%\includegraphics<5>[width=1\textwidth]{pics/decomp_G_H_T.pdf}
+			%\includegraphics<4>[width=0.9\textwidth]{pics/decomp_G3_H_T.pdf}
+			%\includegraphics<5>[width=1\textwidth]{pics/decomp_G_H_T_complete.pdf}
+		\end{center}
+	\end{frame}
+
+	\subsection{Correctness}
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition: Correctness}
+		\begin{center}
+			\includegraphics<1->[width=0.9\textwidth]{pics/decomp_G_H_T_1.pdf}
+		\end{center}
+		\vfill
+		\begin{itemize}
+			\item $|B_x| \le 9$ for any $x \in V(T)$
+			\item $\exists x \in V(T)$, all vertices correspond to $P_1,...,P_k$ in $H$ is in $B_x$ 
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition: Correctness}
+		\begin{center}
+			\includegraphics<1>[width=0.9\textwidth]{pics/decomp_H_T.pdf}
+			\includegraphics<2>[width=0.9\textwidth]{pics/decomp_H_T_outer_edge.pdf}
+			\includegraphics<3>[width=0.9\textwidth]{pics/decomp_H_T_inner_edge.pdf}
+			\includegraphics<4>[width=0.9\textwidth]{pics/decomp_H_T_inner_induce.pdf}
+			\includegraphics<5>[width=0.9\textwidth]{pics/decomp_H_T_outer_induce.pdf}
 		\end{center}
 	\end{frame}
 
 	\section{Summary}
+	\subsection{Wrap-Up}
 	\begin{frame}
+		\frametitle{Wrap-Up}
 		\onslide<1->
 		{
 			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
@@ -468,6 +520,30 @@
 				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
 			\end{theorem}
 		}
+	\end{frame}
+
+	\subsection{Open Problems}
+	\begin{frame}
+		\frametitle{Open Problems}
+		\begin{itemize}
+			\item Maximum queue-number of planar graphs
+			\begin{itemize}
+				\item With a similar decomposition, the constant bound can be lower to 48.
+				\item With method in such a direction, that is the optimum result.
+			\end{itemize}
+			\item Largest class of graphs with bounded queue-number
+			\begin{itemize}
+				\item The decomposition method also applies to the proper minor-closed class of graphs.
+				\item Every proper minor-closed class of graphs has bounded queue-number.
+			\end{itemize}
+			\item Relation between treewidth and queue-number
+			\begin{itemize}
+				\item For graph with treewidth $k$
+				\item Best known lower bound for queue-number is $k+1$.
+				\item Best known upper bound for queue-number is $2^k - 1$.
+			\end{itemize}
+			\item ...
+		\end{itemize}
 	\end{frame}
 	
 	% Table of contents slide (optional)
