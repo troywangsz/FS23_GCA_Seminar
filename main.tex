@@ -42,9 +42,14 @@
 
 % Title, author, and date
 \title{Planar Graphs Have Bounded Queue-Number}
-\author{Shengzhe Wang}
-\institute{ETH Zürich}
-\date{\today}
+\author{VIDA DUJMOVIĆ \inst{1} \and GWENAËL JORET \inst{2} \and PIOTR MICEK \inst{3} \and PAT MORIN \inst{4} \and TORSTEN UECKERDT \inst{5} \and DAVID R. WOOD \inst{6}}
+\institute[shortinst]{\inst{1}  University of Ottawa \and %
+	\inst{2} Université Libre de Bruxelles \and
+	\inst{3} Jagiellonian University \and
+	\inst{4} Carleton University \and
+	\inst{5} Karlsruhe Institute of Technology \and
+	\inst{6} Monash University}
+\date{Seminar Talk by Shengzhe Wang \\\today}
 
 \begin{document}
 	
@@ -63,7 +68,12 @@
 		
 		
 		\begin{center}
-			\onslide<1-2>{\includegraphics[width=0.8\textwidth]{pics/1_6_queue.pdf}} \\
+			\onslide<1-2>
+			{
+				\includegraphics[width=0.8\textwidth]{pics/1_6_queue.pdf}\\
+				\vspace{0.5cm}
+				\centering{ A path graph with 6 vertices}
+			} \\
 			\vspace{1.5cm}
 			\onslide<2->{
 				\includegraphics[width=0.8\textwidth]{pics/1_6_invalid_queue.pdf}}\\
@@ -77,9 +87,9 @@
 		\frametitle{Queue Layout}
 		\begin{center}
 			\includegraphics<1>[width=0.75\textwidth]{pics/colored_queue.pdf}
-			\includegraphics<2>[width=0.75\textheight]{pics/colored_queue_1.pdf}
-			\includegraphics<3>[width=0.75\textheight]{pics/colored_queue_2.pdf}
-			\includegraphics<4>[width=0.75\textheight]{pics/colored_queue_3.pdf}
+			\includegraphics<2>[width=0.95\textheight]{pics/colored_queue_1.pdf}
+			\includegraphics<3>[width=0.95\textheight]{pics/colored_queue_2.pdf}
+			\includegraphics<4>[width=0.95\textheight]{pics/colored_queue_3.pdf}
 		\end{center}
 	\end{frame}
 	
@@ -138,6 +148,23 @@
 				\includegraphics[width=0.5\textwidth]{pics/qn_cycle_label3.pdf}}\\
 		\end{center}
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Queue Number: $K_4$}
+		\begin{center}
+			\onslide<1->{\includegraphics[width=0.5\textwidth]{pics/qn_K4_base.pdf}} \\
+			\vfill
+			\onslide<2->{
+				\includegraphics[width=0.5\textwidth]{pics/qn_K4_2.pdf}}\\
+			\vfill
+			\onslide<3->
+			{
+				\begin{theorem}[Heath, Rosenberg, 1992]
+					The complete graph $K_n$ has queue number $\lfloor \frac{n}{2}\rfloor$.
+				\end{theorem}
+			}
+		\end{center}
+	\end{frame}
 	
 	\section{Introduction to Treewidth}
 	\subsection{Treewidth}
@@ -147,7 +174,7 @@
 		\vspace{1cm}
 		\onslide<2->
 		{
-			\begin{theorem}[Veit,2017]
+			\begin{theorem}[Wiechert,2017]
 				Every graph with treewidth $k$ has queue-number at most $2^k-1$.
 			\end{theorem}
 		}
@@ -211,7 +238,7 @@
 		\frametitle{Treewidth: Planar graph}
 		\onslide<1->
 		{
-			\begin{theorem}[Veit,2017]
+			\begin{theorem}[Wiechert,2017]
 				Every graph with treewidth $k$ has queue-number at most $2^k-1$.
 			\end{theorem}
 			\vfill
@@ -238,14 +265,14 @@
 	\subsection{Partitions}
 	\begin{frame}
 		\frametitle{Partitions}
-		\onslide<1->{Maybe we need more structures}
+		\onslide<1->{Maybe we need more structure}
 		\vfill
 		\onslide<2->
 		{
-			\begin{theorem}[Vida et al.,2020]
-				For a graph $G$, if $G$ has an $H$-partition of layered width $l$ and $H$ has treewidth $k$, then 
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
+				For a graph $G$, if $G$ has an $H$-partition of layered width $\ell$ and $H$ has treewidth $k$, then 
 				
-				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} l \rfloor$$
+				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} \ell \rfloor$$
 			\end{theorem}
 		}
 	\end{frame}
@@ -290,7 +317,7 @@
 	\begin{frame}
 		\frametitle{Layered width}
 		\begin{block}{Definition: Layered width}
-			The layered width of a partition $\mathcal{P}$ of a graph $G$ is the minimum integer $l$ such that there exists a path-partition (layering) of $G$, each element in $\mathcal{P}$ has at most $l$ vertices in each element of path-partition.
+			The layered width of a partition $\mathcal{P}$ of a graph $G$ is the minimum integer $\ell$ such that there exists a path-partition (layering) of $G$, each element in $\mathcal{P}$ has at most $\ell$ vertices in each element of path-partition.
 		\end{block}
 		\vfill
 		\begin{center}
@@ -323,23 +350,23 @@
 		\frametitle{Planar Graph Decomposition}
 		\onslide<1->
 		{
-			\begin{theorem}[Vida et al.,2020]
-				For a graph $G$, if $G$ has an $H$-partition of layered width $l$ and $H$ has treewidth $k$, then 
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
+				For a graph $G$, if $G$ has an $H$-partition of layered width $\ell$ and $H$ has treewidth $k$, then 
 				
-				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} l \rfloor$$
+				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} \ell \rfloor$$
 			\end{theorem}
 		}
 		\vfill
 		\onslide<2->
 		{
-			\begin{theorem}[Vida et al.,2020]
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				Every planar graph $G$ has a connected partition $\mathcal{P}$ with layered width 1 such that $H = G/\mathcal{P}$ has treewidth at most 8.
 			\end{theorem}
 		}
 		\vfill
 		\onslide<3->
 		{
-			\begin{theorem}[Vida et al.,2020]
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				Every planar graph $G$ has queue-number at most 
 				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
 			\end{theorem}
@@ -349,7 +376,7 @@
 	\subsection{The Decomposition Lemma}
 	\begin{frame}
 		\frametitle{Planar Graph Decomposition}
-		\begin{block}{Lemma (Vida et al.,2020)}
+		\begin{block}{Lemma (Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020)}
 			\footnotesize Let $G^+$ be a maximal planar graph, let $T$ be a spanning tree of $G^+$ rooted at vertex $r$ on outerface of $G^+$. For any cycle $F$ in $G^+$, which can be partitioned into at most 6 pairwise disjoint vertical paths of $T$, with $F = [P_1,...P_k]$ and $1 \le k \le 6$. Let $G$ be the internally triangulated subgraph of $G^+$ which consists of all edges and vertices of $G^+$ contained in $F$ and the interior of $F$, then $G$ has a partition $\mathcal{P}$ into vertical paths of $T$, and $P_1,...,P_k \in \mathcal{P}$, and the quotient graph $H = G/\mathcal{P}$ has a tree-decomposition $(B,T)$ that
 			\begin{itemize}
 				\item $|B_x| \le 9$ for any $x \in V(T)$
@@ -418,23 +445,23 @@
 	\begin{frame}
 		\onslide<1->
 		{
-			\begin{theorem}[Vida et al.,2020]
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				Every planar graph $G$ has a connected partition $\mathcal{P}$ with layered width 1 such that $H = G/\mathcal{P}$ has treewidth at most 8.
 			\end{theorem}
 		}
 		\vfill
 		\onslide<2->
 		{
-			\begin{theorem}[Vida et al.,2020]
-				For a graph $G$, if $G$ has an $H$-partition of layered width $l$ and $H$ has treewidth $k$, then 
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
+				For a graph $G$, if $G$ has an $H$-partition of layered width $\ell$ and $H$ has treewidth $k$, then 
 				
-				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} l \rfloor$$
+				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} \ell \rfloor$$
 			\end{theorem}
 		}
 		\vfill
 		\onslide<3->
 		{
-			\begin{theorem}[Vida et al.,2020]
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				Every planar graph $G$ has queue-number at most 
 				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
 			\end{theorem}
