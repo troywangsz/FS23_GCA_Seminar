@@ -43,13 +43,14 @@
 % Title, author, and date
 \title{Planar Graphs Have Bounded Queue-Number}
 \author{Vida Dujmović \inst{1} \and Gwenaël Joret \inst{2} \and Piotr Micek \inst{3} \and Pat Morin \inst{4} \and Torsten Ueckerdt \inst{5} \and David R. Wood \inst{6}}
-\institute[shortinst]{\inst{1}  University of Ottawa \and %
-	\inst{2} Université Libre de Bruxelles \and
+\institute[shortinst]{
+	\inst{1}  University of Ottawa \hspace{0.5cm}
+	\inst{2} Université Libre de Bruxelles \hspace{0.5cm}
 	\inst{3} Jagiellonian University \and
-	\inst{4} Carleton University \and
-	\inst{5} Karlsruhe Institute of Technology \and
+	\inst{4} Carleton University \hspace{0.5cm}
+	\inst{5} Karlsruhe Institute of Technology \hspace{0.5cm}
 	\inst{6} Monash University}
-\date{Geometry: Combinatorics and Algorithms Seminar\\Shengzhe Wang \\April 21, 2023}
+\date{ J. ACM 67/4:1-38, 2020 \\ \vspace{0.5cm} Geometry: Combinatorics and Algorithms Seminar\\Shengzhe Wang \\April 21, 2023}
 
 \begin{document}
 	
@@ -111,14 +112,14 @@
 		\onslide<1->
 		{
 			\begin{block}{Definition: K-Queue Layout}
-				Let $G = (V,E)$, consider a linear odering $\preceq$ of $V$, for an integer $k \ge 0$ a $k$-queue layout of $G$ is a partition of $E$ into $E_1,E_2,...,E_k$ such that each $E_i$ is a queue of $G$.
+				Let $G = (V,E)$, consider a linear odering $\preceq$ of $V$, for an integer $k \ge 0$ a $k$-queue layout of $G$ is a partition of $E$ into $E_1,E_2,...,E_k$ such that each $E_i$ is a queue of $G$  with respect to the ordering $\preceq$.
 			\end{block}
 		}\pause
 		
 		\onslide<2->
 		{
 			\begin{block}{Definition: Queue-Number}
-				The queue-number of $G$, denoted by qn$(G)$, is the minimum integer $k$ such that $G$ has a $k$-queue layout.
+				The queue-number of $G$, denoted by qn$(G)$, is the minimum integer $k$ such that $G$ has a $k$-queue layout for some ordering $\preceq$.
 			\end{block}
 		}
 	\end{frame}
@@ -126,7 +127,7 @@
 	\begin{frame}
 		\frametitle{Queue-Number: Tree}
 		\begin{center}
-			What is the queue-number of tree?
+			What is the queue-number of a tree?
 			\vfill
 			\includegraphics<1>[width=0.6\textwidth]{pics/qn_tree.pdf}
 			\includegraphics<2>[width=0.6\textwidth]{pics/qn_tree_labeled.pdf}
@@ -293,9 +294,18 @@
 			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				For a graph $G$, if $G$ has an $H$-partition of layered width $\ell$ and $H$ has treewidth $k$, then 
 				
-				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} \ell \rfloor$$
+				$$\text{qn}(G) \le 3\ell(2^k-1) + \left\lfloor \frac{3}{2} \ell \right\rfloor$$
 			\end{theorem}
 		}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Partitions}
+		\begin{center}
+			\includegraphics<1>[width=0.5\textwidth]{pics/partition_G.pdf}
+			\includegraphics<2>[width=0.5\textwidth]{pics/partition_P.pdf}
+			\includegraphics<3>[width=0.7\textwidth]{pics/partition_H.pdf}
+		\end{center}
 	\end{frame}
 
 	\begin{frame}
@@ -305,22 +315,22 @@
 			\begin{block}{Definition: Partition and Quotient}
 				A partition of $G$ is a set $\mathcal{P} = \{P_1,...,P_n\}$ of non-empty subsets of $V(G)$ and each vertex of $G$ is in exactly one element (part) of $\mathcal{P}$.
 				
-				The quotient of $\mathcal{P}$ is a graph, denoted by $G/\mathcal{P}$, with each vertex $v_i$ corresponds $P_i$. For any two vertices $v_i,v_j$ in $G/\mathcal{P}$, they are connected if and only if some vertex in $P_i$ is connected to some vertex in $P_j$ in graph $G$.
+				The quotient of $\mathcal{P}$ is a graph, denoted by $G/\mathcal{P}$, where each vertex $v_i$ corresponds to $P_i$. For any two vertices $v_i,v_j$ in $G/\mathcal{P}$, they are connected if and only if some vertex in $P_i$ is connected to some vertex in $P_j$ in graph $G$.
 			\end{block}
 		}
-		\onslide<5->
+		\onslide<2->
 		{
 			\begin{block}{Definition: $H$-partition}
-				A $H$-partition of a graph $G$ is a pair $(A,H)$. $A = \{A_x | x \in V(H)\}$ is a partition of $V(G)$ and $H$ is a graph isomorphic to the quotient $G/A$.
+				An $H$-partition of a graph $G$ is a pair $(A,H)$, s.t. $A = \{A_x | x \in V(H)\}$ is a partition of $V(G)$ and $H$ is a graph isomorphic to the quotient $G/A$.
 			\end{block}
 		}
 	\vfill
 		\begin{center}
-			\includegraphics<2>[width=0.3\textwidth]{pics/partition_G.pdf}
-			\includegraphics<3>[width=0.3\textwidth]{pics/partition_P.pdf}
-			\includegraphics<4-5>[width=0.6\textwidth]{pics/partition_H.pdf}
-			\includegraphics<6>[width=0.6\textwidth]{pics/partition_bad1.pdf}
-			\includegraphics<7>[width=0.6\textwidth]{pics/partition_bad2.pdf}
+			%\includegraphics<2>[width=0.3\textwidth]{pics/partition_G.pdf}
+			%\includegraphics<3>[width=0.3\textwidth]{pics/partition_P.pdf}
+			\includegraphics<1-2>[width=0.55\textwidth]{pics/partition_H.pdf}
+			\includegraphics<3>[width=0.55\textwidth]{pics/partition_bad1.pdf}
+			\includegraphics<4>[width=0.55\textwidth]{pics/partition_bad2.pdf}
 		\end{center}
 	\end{frame}
 
@@ -338,7 +348,7 @@
 	\begin{frame}
 		\frametitle{Layered width}
 		\begin{block}{Definition: Layered width}
-			The layered width of a partition $\mathcal{P}$ of a graph $G$ is the minimum integer $\ell$ such that there exists a path-partition (layering) of $G$, each element in $\mathcal{P}$ has at most $\ell$ vertices in each element of path-partition.
+			The layered width of a partition $\mathcal{P}$ of a graph $G$ is the minimum integer $\ell$ such that there exists a path-partition (layering) of $G$, s.t. each element in $\mathcal{P}$ has at most $\ell$ vertices in each element of the path-partition.
 		\end{block}
 		\vfill
 		\begin{center}
@@ -363,7 +373,10 @@
 			\includegraphics<6>[width=0.35\textwidth]{pics/vp_tree_partition.pdf}
 			\includegraphics<7->[width=0.3\textwidth]{pics/vp_tree_partition_lw1.pdf}
 		\end{center}
-		\onslide<8>{A partition of the tree where each part is a vertical path has layered width 1.}
+		
+		\onslide<8>{\centering A partition of layered width 1 where each part is a vertical path.}
+		
+		
 	\end{frame}
 
 	\section{Planar Graph Decomposition}
@@ -374,7 +387,7 @@
 			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				For a graph $G$, if $G$ has an $H$-partition of layered width $\ell$ and $H$ has treewidth $k$, then 
 				
-				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} \ell \rfloor$$
+				$$\text{qn}(G) \le 3\ell(2^k-1) + \left\lfloor \frac{3}{2} \ell \right\rfloor$$
 			\end{theorem}
 		}
 		\vfill
@@ -389,16 +402,33 @@
 		{
 			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				Every planar graph $G$ has queue-number at most 
-				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
+				$$3(2^8-1) + \left\lfloor \frac{3}{2} \right\rfloor = 766$$ 
 			\end{theorem}
 		}
 	\end{frame}
 
+	
 	\subsection{The Decomposition Lemma}
 	\begin{frame}
 		\frametitle{Planar Graph Decomposition}
 		\begin{block}{Lemma (Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020)}
-			\footnotesize Let $G^+$ be a maximal planar graph, let $T$ be a spanning tree of $G^+$ rooted at vertex $r$ on outerface of $G^+$. For any cycle $F$ in $G^+$, which can be partitioned into at most 6 pairwise disjoint vertical paths of $T$, with $F = [P_1,...P_k]$ and $1 \le k \le 6$. Let $G$ be the internally triangulated subgraph of $G^+$ which consists of all edges and vertices of $G^+$ contained in $F$ and the interior of $F$, then $G$ has a partition $\mathcal{P}$ into vertical paths of $T$, and $P_1,...,P_k \in \mathcal{P}$, and the quotient graph $H = G/\mathcal{P}$ has a tree-decomposition $(B,T)$ that
+			\footnotesize (Simplified) Let $G^+$ be a maximal planar graph, we can find a subgraph $G$ of $G^+$, then $G$ has a desired partition.
+		\end{block}
+		\vfill
+		\begin{center}
+			\includegraphics<2>[width=0.55\textwidth]{pics/decomp_base.pdf}
+			\includegraphics<3>[width=0.5\textwidth]{pics/decomp_base_cycle_small.pdf}
+			\includegraphics<4>[width=0.5\textwidth]{pics/decomp_G.pdf}
+			\includegraphics<5>[width=0.7\textwidth]{pics/decomp_G_H.pdf}
+			\includegraphics<6>[width=0.9\textwidth]{pics/decomp_G_H_T_complete.pdf}
+		\end{center}
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition}
+		\begin{block}{Lemma (Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020)}
+			\footnotesize Let $G^+$ be a maximal planar graph, let $T$ be a spanning tree of $G^+$ rooted at vertex $root$ on outerface of $G^+$. For any cycle $F$ in $G^+$, which can be partitioned into at most 6 pairwise disjoint vertical paths of $T$, with $F = [P_1,...P_k]$ and $1 \le k \le 6$. Let $G$ be the internally triangulated subgraph of $G^+$ which consists of all edges and vertices of $G^+$ contained in $F$ and the interior of $F$, then $G$ has a partition $\mathcal{P}$ into vertical paths of $T$, and $P_1,...,P_k \in \mathcal{P}$, and the quotient graph $H = G/\mathcal{P}$ has a tree-decomposition $(B,T)$ that
 			\begin{itemize}
 				\item $|B_x| \le 9$ for any $x \in V(T)$
 				\item $\exists x \in V(T)$, all vertices correspond to $P_1,...,P_k$ in $H$ is in $B_x$ 
@@ -420,9 +450,33 @@
 		\end{center}
 	\end{frame}
 
-	\subsection{Induction}
 	\begin{frame}
 		\frametitle{Planar Graph Decomposition}
+		\begin{block}{Lemma (Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020)}
+			\footnotesize Let $G^+$ be a maximal planar graph, let $T$ be a spanning tree of $G^+$ rooted at vertex $root$ on outerface of $G^+$. For any cycle $F$ in $G^+$, which can be partitioned into at most 6 pairwise disjoint vertical paths of $T$, with $F = [P_1,...P_k]$ and $1 \le k \le 6$. Let $G$ be the internally triangulated subgraph of $G^+$ which consists of all edges and vertices of $G^+$ contained in $F$ and the interior of $F$, then $G$ has a partition $\mathcal{P}$ into vertical paths of $T$, and $P_1,...,P_k \in \mathcal{P}$, and the quotient graph $H = G/\mathcal{P}$ has a tree-decomposition $(B,T)$ that
+			\begin{itemize}
+				\item $|B_x| \le 9$ for any $x \in V(T)$
+				\item $\exists x \in V(T)$, all vertices correspond to $P_1,...,P_k$ in $H$ is in $B_x$ 
+			\end{itemize}
+			
+		\end{block}
+		\vfill
+		\onslide<2->
+		{
+			\centering{\footnotesize Note that three vertices on the outer cycle can always be three vertical paths of $T$.}
+		}
+		\vfill
+		\onslide<3->
+		{
+			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
+				Every planar graph $G$ has a connected partition $\mathcal{P}$ with layered width 1 such that $H = G/\mathcal{P}$ has treewidth at most 8.
+			\end{theorem}
+		}
+	\end{frame}
+
+	\subsection{Induction}
+	\begin{frame}
+		\frametitle{Planar Graph Decomposition: Induction}
 		\begin{center}
 			\includegraphics<1>[width=0.7\textwidth]{pics/decomp_base_cycle.pdf}
 			\includegraphics<2>[width=0.7\textwidth]{pics/decomp_base_R.pdf}
@@ -431,7 +485,7 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Planar Graph Decomposition}
+		\frametitle{Planar Graph Decomposition: Induction}
 		\begin{block}{Lemma (Sperner's Lemma)}
 			Let $G$ be an internally triangulated graph whose vertices are colored 1,2,3 with the outer-face $F = [P_1,P_2,P_3]$ where each vertex in $P_i$ is colored $i$. Then $G$ contains an internal face whose vertices are colored 1,2,3.
 		\end{block}
@@ -442,7 +496,7 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Planar Graph Decomposition}
+		\frametitle{Planar Graph Decomposition: Induction}
 		\begin{center}
 			\includegraphics<1>[width=0.7\textwidth]{pics/decomp_base_color_tau.pdf}
 			\includegraphics<2>[width=0.7\textwidth]{pics/decomp_base_Q_R+-.pdf}
@@ -509,7 +563,7 @@
 			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				For a graph $G$, if $G$ has an $H$-partition of layered width $\ell$ and $H$ has treewidth $k$, then 
 				
-				$$\text{qn}(G) \le 3l(2^k-1) + \lfloor \frac{3}{2} \ell \rfloor$$
+				$$\text{qn}(G) \le 3\ell(2^k-1) + \left\lfloor \frac{3}{2} \ell \right\rfloor$$
 			\end{theorem}
 		}
 		\vfill
@@ -517,7 +571,7 @@
 		{
 			\begin{theorem}[Dujmović, Joret, Micek, Morin, Ueckerdt, Wood, 2020]
 				Every planar graph $G$ has queue-number at most 
-				$$3(2^8-1) + \lfloor \frac{3}{2} \rfloor = 766$$ 
+				$$3(2^8-1) + \left\lfloor \frac{3}{2} \right\rfloor = 766$$ 
 			\end{theorem}
 		}
 	\end{frame}
@@ -525,24 +579,24 @@
 	\subsection{Open Problems}
 	\begin{frame}
 		\frametitle{Open Problems}
-		\begin{itemize}
-			\item Maximum queue-number of planar graphs
-			\begin{itemize}
-				\item With a similar decomposition, the constant bound can be lower to 48.
+		\begin{itemize}[<+->]
+			\item<1-> Maximum queue-number of planar graphs
+			\begin{itemize}[<1->]
+				\item The constant bound can be lower to 48 with similar decomposition.
 				\item With method in such a direction, that is the optimum result.
 			\end{itemize}
-			\item Largest class of graphs with bounded queue-number
-			\begin{itemize}
+			\item<2-> Largest class of graphs with bounded queue-number
+			\begin{itemize}[<2->]
 				\item The decomposition method also applies to the proper minor-closed class of graphs.
 				\item Every proper minor-closed class of graphs has bounded queue-number.
 			\end{itemize}
-			\item Relation between treewidth and queue-number
-			\begin{itemize}
+			\item<3-> Relation between treewidth and queue-number
+			\begin{itemize}[<3->]
 				\item For graph with treewidth $k$
 				\item Best known lower bound for queue-number is $k+1$.
 				\item Best known upper bound for queue-number is $2^k - 1$.
 			\end{itemize}
-			\item ...
+			\item<3-> ...
 		\end{itemize}
 	\end{frame}
 	
